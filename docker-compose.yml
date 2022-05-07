@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  github-smart-inputs-postgres:
+    image: postgres:14.2
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - target: 5432
+        published: 30882
+        protocol: tcp
+        mode: host
+volumes:
+  db_data:
